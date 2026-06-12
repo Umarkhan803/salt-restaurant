@@ -12,12 +12,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --primary: #e31e24;
-      --primary-dark: #c4191f;
+      --primary: #ff9c10;
+      --primary-dark: #ff9500;
       --primary-light: #fff0f0;
       --accent: #ffc107;
       --dark: #1a1a1a;
       --text: #333333;
+       --hover-color:#faa320;
       --muted: #757575;
       --bg: #f7f7f7;
       --white: #ffffff;
@@ -26,6 +27,7 @@
       --shadow-lg: 0 8px 30px rgba(0,0,0,.1);
       --radius: 10px;
       --radius-pill: 50px;
+      --background-color:#ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -109,7 +111,7 @@
     .auth-btn-signup:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(227,30,36,.3);
+      box-shadow: 0 4px 14px var(--hover-color);
     }
     #authButtons { display: flex; gap: 8px; align-items: center; }
 
@@ -227,7 +229,7 @@
     .auth-submit:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(227,30,36,.3);
+      box-shadow: 0 6px 20px var(--hover-color);
     }
     .auth-switch {
       text-align: center; margin-top: 16px; font-size: .84rem; color: var(--muted);
@@ -298,8 +300,6 @@
       width: 40px; height: 40px; border-radius: 8px;
       font-size: 1.1rem; cursor: pointer; color: var(--text);
     }
-
-    /* Hero — full-width banner like BBQ Nation */
     .hero {
       position: relative; min-height: 480px;
       display: flex; align-items: flex-end; overflow: hidden;
@@ -523,7 +523,7 @@
     .menu-tab.active, .menu-tab:hover {
       background: var(--primary); border-color: var(--primary); color: var(--white);
       transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(227,30,36,.25);
+      box-shadow: 0 4px 14px var(--hover-color);
     }
 
     .menu-grid {
@@ -831,7 +831,7 @@
     .checkout-btn:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(227,30,36,.3);
+      box-shadow: 0 6px 20px var(--hover-color);
     }
 
     /* Payment Gateway Modal */
@@ -932,7 +932,7 @@
     }
     .payment-form input:focus {
       outline: none; border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(227,30,36,.1);
+      box-shadow: 0 0 0 3px var(--hover-color);
     }
 
     .pay-now-btn {
@@ -945,7 +945,7 @@
     .pay-now-btn:hover:not(:disabled) {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(227,30,36,.35);
+      box-shadow: 0 8px 24px var(--hover-color);
     }
     .pay-now-btn:disabled { opacity: .7; cursor: not-allowed; }
 
@@ -1041,7 +1041,7 @@
     }
     .btn:hover, .add-btn:hover, .reserve-header-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(227,30,36,.25);
+        box-shadow: 0 6px 20px var(--hover-color);
     }
     .btn:active, .add-btn:active { transform: translateY(0) scale(.97); }
 

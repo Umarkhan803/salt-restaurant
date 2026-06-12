@@ -1138,18 +1138,51 @@
     }
 
     @media (max-width: 768px) {
+      .header-top { position: relative; }
+      .header-inner {
+        padding: 10px 12px;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+      .logo { font-size: 1.15rem; flex-shrink: 0; }
+      .logo-icon { width: 36px; height: 36px; font-size: .95rem; }
+      .header-actions {
+        flex-wrap: nowrap;
+        gap: 6px;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
       nav { display: none; }
       nav.open {
         display: flex; flex-direction: column; position: absolute;
         top: 100%; left: 0; right: 0; background: var(--white);
         padding: 16px 10px; box-shadow: var(--shadow);
         border-top: 1px solid var(--border);
+        z-index: 120;
       }
-      .menu-toggle { display: flex; align-items: center; justify-content: center; }
+      .menu-toggle {
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .reserve-header-btn {
+        padding: 8px 10px;
+        min-width: 40px;
+        justify-content: center;
+      }
       .reserve-header-btn span { display: none; }
-      .auth-btn span { display: none; }
-      .auth-btn { padding: 9px 10px; }
+      .auth-btn-label, .cart-btn-label { display: none; }
+      .auth-btn { padding: 8px 10px; min-width: 40px; justify-content: center; }
+      #authButtons { gap: 6px; }
+      .cart-btn {
+        position: relative;
+        padding: 8px 10px; gap: 4px; min-width: 40px; justify-content: center;
+      }
+      .cart-btn .cart-count {
+        position: absolute; top: -2px; right: -2px;
+        min-width: 18px; height: 18px; font-size: .62rem;
+      }
       #userName { display: none; }
+      .user-btn { padding: 6px 10px; }
       .story-grid { grid-template-columns: 1fr; }
       .timeline::before { left: 20px; }
       .timeline-item, .timeline-item:nth-child(odd) {
@@ -1161,6 +1194,17 @@
       .form-row { grid-template-columns: 1fr; }
       .hero { min-height: 420px; }
       .quick-actions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 400px) {
+      .logo span { display: none; }
+      .header-actions { gap: 4px; }
+      .auth-btn, .cart-btn, .reserve-header-btn, .menu-toggle {
+        min-width: 36px;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+      }
     }
   </style>
 </head>
@@ -1184,11 +1228,11 @@
         <div class="header-actions">
           <div id="authButtons">
             <button class="auth-btn auth-btn-login" onclick="openAuth('login')">
-              <i class="fa-solid fa-right-to-bracket"></i> Login
+              <i class="fa-solid fa-right-to-bracket"></i> <span class="auth-btn-label">Login</span>
             </button>
-            <button class="auth-btn auth-btn-signup" onclick="openAuth('signup')">
+            <!-- <button class="auth-btn auth-btn-signup" onclick="openAuth('signup')">
               <i class="fa-solid fa-user-plus"></i> Sign Up
-            </button>
+            </button> -->
           </div>
           <div class="user-menu" id="userMenu" style="display:none">
             <button class="user-btn" onclick="toggleUserMenu()">
@@ -1206,7 +1250,7 @@
             <i class="fa-solid fa-calendar-check"></i> <span>Reserve Table</span>
           </a>
           <button class="cart-btn" onclick="toggleCart()">
-            <i class="fa-solid fa-bag-shopping"></i> Cart
+            <i class="fa-solid fa-bag-shopping"></i> <span class="cart-btn-label">Cart</span>
             <span class="cart-count" id="cartCount">0</span>
           </button>
           <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')">
